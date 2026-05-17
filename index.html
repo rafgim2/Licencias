@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Autorizar cuentas Gmail · Class Trivial</title>
+  <title>Comprar partidas · Class Trivial</title>
   <style>
     :root {
       --bg1: #2563eb;
@@ -16,7 +16,6 @@
       --green: #16a34a;
       --red: #dc2626;
       --yellow: #facc15;
-      --border: rgba(148, 163, 184, 0.35);
     }
 
     * { box-sizing: border-box; }
@@ -42,53 +41,9 @@
     }
 
     main {
-      width: min(980px, calc(100% - 28px));
+      width: min(1180px, calc(100% - 28px));
       margin: 0 auto;
       padding: 28px 0 42px;
-    }
-
-    .top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-      color: white;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 1000;
-      font-size: clamp(28px, 5vw, 54px);
-      line-height: 0.95;
-      letter-spacing: -1px;
-      text-shadow: 0 5px 18px rgba(0,0,0,0.25);
-    }
-
-    .badge {
-      width: 66px;
-      height: 66px;
-      display: grid;
-      place-items: center;
-      border-radius: 24px;
-      background: white;
-      color: #111827;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.20);
-      transform: rotate(-7deg);
-      font-size: 34px;
-    }
-
-    .pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.25);
-      border: 1px solid rgba(255,255,255,0.36);
-      backdrop-filter: blur(8px);
-      color: white;
-      font-weight: 900;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.13);
     }
 
     .card {
@@ -101,22 +56,18 @@
     }
 
     h1 {
-      margin: 0 0 12px;
-      font-size: clamp(34px, 5vw, 64px);
+      margin: 0 0 20px;
+      font-size: clamp(38px, 6vw, 72px);
       line-height: 0.95;
       letter-spacing: -2px;
     }
 
-    h2 {
-      margin: 24px 0 12px;
-      font-size: clamp(24px, 3.5vw, 38px);
-    }
-
     p {
       color: var(--muted);
-      font-weight: 800;
+      font-weight: 900;
       line-height: 1.35;
-      font-size: 18px;
+      font-size: clamp(18px, 2.1vw, 27px);
+      margin: 0 0 24px;
     }
 
     .notice {
@@ -148,41 +99,7 @@
       color: #312e81;
     }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 18px;
-      font-weight: 1000;
-    }
-
-    input {
-      width: 100%;
-      border: 4px solid #e5e7eb;
-      border-radius: 22px;
-      padding: 17px 19px;
-      font-size: 23px;
-      font-weight: 900;
-      outline: none;
-      background: white;
-    }
-
-    input:focus {
-      border-color: var(--yellow);
-      box-shadow: 0 0 0 6px rgba(250,204,21,0.35);
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 1fr 210px;
-      gap: 12px;
-      align-items: end;
-      margin: 20px 0;
-    }
-
-    @media (max-width: 720px) {
-      .top { align-items: flex-start; flex-direction: column; }
-      .row { grid-template-columns: 1fr; }
-    }
+    .hidden { display: none !important; }
 
     button {
       border: 0;
@@ -211,16 +128,11 @@
       box-shadow: 0 10px 0 #1d4ed8, 0 18px 28px rgba(0,0,0,0.20);
     }
 
-    button.danger {
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      box-shadow: 0 10px 0 #b91c1c, 0 18px 28px rgba(0,0,0,0.20);
-    }
-
     button.small {
       width: auto;
-      font-size: 16px;
-      padding: 10px 14px;
-      border-radius: 16px;
+      font-size: 18px;
+      padding: 12px 20px;
+      border-radius: 18px;
       box-shadow: none;
     }
 
@@ -231,168 +143,149 @@
       box-shadow: none;
     }
 
-    .hidden { display: none !important; }
-
-    .list {
-      display: grid;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .account {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: center;
-      padding: 16px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #ffffff, #eff6ff 55%, #fef9c3);
-      border: 3px solid rgba(147, 197, 253, 0.65);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-    }
-
-    .account strong {
-      display: block;
-      font-size: 20px;
-      word-break: break-word;
-    }
-
-    .account span {
-      color: #64748b;
-      font-weight: 850;
-      font-size: 14px;
-    }
-
-    code {
-      display: inline-block;
-      padding: 3px 7px;
-      border-radius: 9px;
-      background: #111827;
-      color: #facc15;
-      font-weight: 900;
-    }
-
     .pack-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin: 18px 0;
+      gap: 20px;
+      margin: 24px 0 26px;
     }
 
     .pack-card {
-      padding: 18px;
-      border-radius: 24px;
+      padding: 26px;
+      border-radius: 30px;
       background: linear-gradient(135deg, #ffffff, #eff6ff 55%, #fef9c3);
-      border: 3px solid rgba(147, 197, 253, 0.65);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      border: 4px solid rgba(147, 197, 253, 0.65);
+      box-shadow: 0 14px 30px rgba(30,64,175,0.12);
+      display: flex;
+      flex-direction: column;
+      min-height: 290px;
     }
 
     .pack-card strong {
       display: block;
-      font-size: 24px;
-      margin-bottom: 8px;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1;
+      margin-bottom: 12px;
     }
 
     .pack-card span {
       display: block;
       color: #64748b;
-      font-weight: 850;
-      font-size: 15px;
+      font-weight: 900;
+      font-size: clamp(18px, 1.7vw, 23px);
+      line-height: 1.25;
       margin-bottom: 14px;
     }
 
-    @media (max-width: 720px) {
+    .price {
+      display: block;
+      color: #111827;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 1000;
+      line-height: 1;
+      margin: auto 0 20px;
+    }
+
+    .price small {
+      font-size: 0.46em;
+      color: #64748b;
+      font-weight: 1000;
+    }
+
+    .free-note {
+      margin: 0 0 24px;
+      padding: 20px 24px;
+      border-radius: 28px;
+      background: #eef2ff;
+      border: 4px solid #c7d2fe;
+      color: #312e81;
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 1000;
+    }
+
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .session-line {
+      margin-top: 28px;
+      padding: 20px 24px;
+      border-radius: 28px;
+      background: #dcfce7;
+      border: 4px solid #86efac;
+      color: #166534;
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 1000;
+    }
+
+    @media (max-width: 850px) {
       .pack-grid {
         grid-template-columns: 1fr;
+      }
+
+      .pack-card {
+        min-height: auto;
+      }
+
+      .price {
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
   <main>
-    <header class="top">
-      <div class="brand"><div class="badge">🔐</div><div>Autorizar Gmail</div></div>
-      <div class="pill" id="sessionPill">Comprobando sesión...</div>
-    </header>
-
     <section class="card">
-      <h1>Cuentas autorizadas</h1>
-      <p>
-        Esta página sirve para añadir o quitar cuentas de Gmail que podrán crear partidas como profesor en tu Class Trivial.
-        Solo la cuenta administradora puede gestionar la lista.
-      </p>
-
       <div id="loginBox">
-        <div class="notice info">Inicia sesión con Google para comprar partidas o, si eres administrador, autorizar otras cuentas.</div>
+        <h1>Comprar partidas</h1>
+        <p>
+          Inicia sesión con Google para comprar packs de partidas y asociarlos a tu cuenta.
+        </p>
         <button class="secondary" id="loginBtn">Iniciar sesión con Google</button>
       </div>
 
-
       <div id="purchaseBox" class="hidden">
-        <div class="notice ok" id="creditsStatus">Sesión iniciada.</div>
-
-        <h2>Comprar partidas</h2>
+        <h1>Comprar partidas</h1>
         <p>
-          Compra packs de partidas para poder generar nuevos trivials.
-          Cada partida generada descontará 1 uso.
+          Compra packs de partidas para poder generar nuevos trivials. Cada partida generada descontará 1 uso.
         </p>
 
         <div class="pack-grid">
           <div class="pack-card">
             <strong>50 partidas</strong>
             <span>Pack pequeño para probar o usar de vez en cuando.</span>
+            <div class="price">4,99€</div>
             <button class="secondary buyPackBtn" type="button" data-pack="50">Comprar 50</button>
           </div>
 
           <div class="pack-card">
             <strong>100 partidas</strong>
             <span>Pack intermedio para uso habitual en clase.</span>
+            <div class="price">9,99€</div>
             <button class="secondary buyPackBtn" type="button" data-pack="100">Comprar 100</button>
           </div>
 
           <div class="pack-card">
             <strong>200 partidas</strong>
             <span>Pack grande para usarlo durante más tiempo.</span>
+            <div class="price">14,99€</div>
             <button class="secondary buyPackBtn" type="button" data-pack="200">Comprar 200</button>
           </div>
         </div>
 
-        <div class="notice info">
-          Cada cuenta podrá probar 3 partidas gratis. Lo activaremos en el siguiente paso.
+        <div class="free-note">
+          Cada cuenta puede probar 3 partidas gratis.
         </div>
 
-        <div style="margin-top: 18px;">
+        <div class="actions">
           <button class="secondary small" id="backToGameBtn" type="button">Volver al juego</button>
         </div>
-      </div>
 
-      <div id="notAdminBox" class="hidden">
-        <div class="notice bad" id="notAdminText">Esta cuenta no puede administrar autorizaciones.</div>
-        <button class="danger" id="logoutBtn1">Cerrar sesión</button>
-      </div>
-
-      <div id="adminBox" class="hidden">
-        <div class="notice ok" id="adminStatus">Sesión administradora correcta.</div>
-
-        <div class="row">
-          <div>
-            <label for="emailInput">Gmail que quieres autorizar</label>
-            <input id="emailInput" type="email" placeholder="profesor@gmail.com" autocomplete="off" />
-          </div>
-          <button id="addBtn">Autorizar ✨</button>
-        </div>
-
-        <div class="notice info">
-          La cuenta principal <code>rafgim36@gmail.com</code> siempre queda autorizada aunque no aparezca en la lista.
-        </div>
-
-        <h2>Lista actual</h2>
-        <div class="list" id="accountsList"></div>
-
-        <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;">
-          <button class="secondary small" id="refreshBtn" type="button">Actualizar lista</button>
-          <button class="danger small" id="logoutBtn2" type="button">Cerrar sesión</button>
-        </div>
+        <div class="session-line" id="sessionStatus">Sesión iniciada.</div>
       </div>
 
       <div class="notice hidden" id="messageBox"></div>
@@ -413,28 +306,15 @@
       measurementId: "G-S78TM6PVRL"
     };
 
-    const ADMIN_EMAIL = "rafgim36@gmail.com";
-    const AUTHORIZED_HOSTS_COLLECTION = "trivialAuthorizedHosts";
+    const GAME_URL = "https://rafgim2.github.io/Classtrivial/";
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-    import {
-      initializeFirestore,
-      collection,
-      doc,
-      setDoc,
-      deleteDoc,
-      onSnapshot,
-      serverTimestamp,
-      query,
-      orderBy
-    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
     import {
       getAuth,
       GoogleAuthProvider,
       signInWithPopup,
       signInWithRedirect,
       getRedirectResult,
-      signOut,
       onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
@@ -444,31 +324,14 @@
     } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-functions.js";
 
     const app = initializeApp(firebaseConfig);
-    const db = initializeFirestore(app, {
-      experimentalAutoDetectLongPolling: true,
-      useFetchStreams: false
-    });
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
     const functions = getFunctions(app, "europe-west1");
     const createCheckoutSession = httpsCallable(functions, "createCheckoutSession");
 
     let currentUser = null;
-    let unsubscribeAccounts = null;
 
     const $ = (id) => document.getElementById(id);
-
-    function normalizeEmail(value) {
-      return String(value || "").trim().toLowerCase();
-    }
-
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    function isAdmin(user) {
-      return normalizeEmail(user?.email) === normalizeEmail(ADMIN_EMAIL);
-    }
 
     function showMessage(text, type = "info") {
       const box = $("messageBox");
@@ -476,7 +339,7 @@
       box.textContent = text;
       box.classList.remove("hidden");
       clearTimeout(showMessage._timer);
-      showMessage._timer = setTimeout(() => box.classList.add("hidden"), 5500);
+      showMessage._timer = setTimeout(() => box.classList.add("hidden"), 6000);
     }
 
     async function login() {
@@ -498,11 +361,6 @@
         }
       }
     }
-
-    async function logout() {
-      await signOut(auth);
-    }
-
 
     async function buyPack(pack) {
       if (!currentUser) {
@@ -535,161 +393,37 @@
       }
     }
 
-    async function addAccount() {
-      if (!isAdmin(currentUser)) {
-        showMessage("Solo la cuenta administradora puede autorizar cuentas.", "bad");
-        return;
-      }
-
-      const email = normalizeEmail($("emailInput").value);
-      if (!isValidEmail(email)) {
-        showMessage("Escribe un correo válido, por ejemplo profesor@gmail.com.", "bad");
-        return;
-      }
-
-      if (email === normalizeEmail(ADMIN_EMAIL)) {
-        showMessage("Tu cuenta principal ya está autorizada siempre.", "info");
-        $("emailInput").value = "";
-        return;
-      }
-
-      await setDoc(doc(db, AUTHORIZED_HOSTS_COLLECTION, email), {
-        email,
-        enabled: true,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-        createdBy: currentUser.email,
-        updatedBy: currentUser.email
-      }, { merge: true });
-
-      $("emailInput").value = "";
-      showMessage(`${email} ya puede crear partidas como profesor.`, "ok");
-    }
-
-    async function removeAccount(email) {
-      if (!isAdmin(currentUser)) {
-        showMessage("Solo la cuenta administradora puede quitar autorizaciones.", "bad");
-        return;
-      }
-
-      const cleanEmail = normalizeEmail(email);
-      if (!cleanEmail || cleanEmail === normalizeEmail(ADMIN_EMAIL)) return;
-
-      const ok = confirm(`¿Quitar autorización a ${cleanEmail}?`);
-      if (!ok) return;
-
-      await deleteDoc(doc(db, AUTHORIZED_HOSTS_COLLECTION, cleanEmail));
-      showMessage(`${cleanEmail} ya no está autorizado.`, "ok");
-    }
-
-    function renderAccountList(docs) {
-      const list = $("accountsList");
-      list.innerHTML = "";
-
-      if (!docs.length) {
-        list.innerHTML = `<div class="notice info" style="margin:0;">Todavía no has añadido ninguna cuenta extra.</div>`;
-        return;
-      }
-
-      for (const snap of docs) {
-        const data = snap.data();
-        const email = normalizeEmail(data.email || snap.id);
-        const div = document.createElement("div");
-        div.className = "account";
-        div.innerHTML = `
-          <div>
-            <strong>${escapeHtml(email)}</strong>
-            <span>Autorizada para crear partidas como profesor</span>
-          </div>
-          <button class="danger small" type="button">Quitar</button>
-        `;
-        div.querySelector("button").addEventListener("click", () => removeAccount(email));
-        list.appendChild(div);
-      }
-    }
-
-    function listenAccounts() {
-      unsubscribeAccounts?.();
-      const q = query(collection(db, AUTHORIZED_HOSTS_COLLECTION), orderBy("email"));
-      unsubscribeAccounts = onSnapshot(q, (snapshot) => {
-        const docs = snapshot.docs.filter((d) => d.data()?.enabled !== false);
-        renderAccountList(docs);
-      }, (error) => {
-        console.error(error);
-        showMessage("No se ha podido leer la lista. Revisa las reglas de Firestore.", "bad");
-      });
-    }
-
     function updateUI() {
       const email = currentUser?.email || "";
-      $("sessionPill").textContent = currentUser ? `Sesión: ${email}` : "Sin sesión";
 
       $("loginBox").classList.toggle("hidden", Boolean(currentUser));
-      $("purchaseBox").classList.add("hidden");
-      $("notAdminBox").classList.add("hidden");
-      $("adminBox").classList.add("hidden");
+      $("purchaseBox").classList.toggle("hidden", !currentUser);
 
-      if (!currentUser) {
-        unsubscribeAccounts?.();
-        unsubscribeAccounts = null;
-        return;
+      if (currentUser) {
+        $("sessionStatus").textContent = `Sesión iniciada: ${email}`;
       }
-
-      $("purchaseBox").classList.remove("hidden");
-      $("creditsStatus").textContent = `Sesión iniciada: ${email}`;
-
-      if (!isAdmin(currentUser)) {
-        unsubscribeAccounts?.();
-        unsubscribeAccounts = null;
-        $("notAdminText").textContent = `Has iniciado sesión como ${email}. Puedes comprar partidas, pero solo ${ADMIN_EMAIL} puede autorizar cuentas.`;
-        $("notAdminBox").classList.remove("hidden");
-        return;
-      }
-
-      $("adminStatus").textContent = `Sesión administradora correcta: ${email}`;
-      $("adminBox").classList.remove("hidden");
-      listenAccounts();
     }
-
-
 
     function showStripeReturnMessage() {
       const params = new URLSearchParams(window.location.search);
       const stripeStatus = params.get("stripe");
 
       if (stripeStatus === "success") {
-        showMessage("Pago completado. En el siguiente paso activaremos la suma automática de partidas con el webhook.", "ok");
+        showMessage("Pago completado. Las partidas se añadirán automáticamente a tu cuenta.", "ok");
       } else if (stripeStatus === "cancel") {
         showMessage("Pago cancelado. No se ha cobrado nada.", "info");
       }
     }
 
-    function escapeHtml(text) {
-      return String(text)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-    }
-
     $("loginBtn").addEventListener("click", login);
-    $("logoutBtn1").addEventListener("click", logout);
-    $("logoutBtn2").addEventListener("click", logout);
-    $("addBtn").addEventListener("click", addAccount);
-    $("refreshBtn").addEventListener("click", listenAccounts);
-    $("emailInput").addEventListener("keydown", (ev) => {
-      if (ev.key === "Enter") addAccount();
-    });
 
     document.querySelectorAll(".buyPackBtn").forEach((btn) => {
       btn.addEventListener("click", () => buyPack(btn.dataset.pack));
     });
 
     $("backToGameBtn").addEventListener("click", () => {
-      window.location.href = "./index.html";
+      window.location.href = GAME_URL;
     });
-
 
     getRedirectResult(auth).catch((error) => {
       console.error("Error recuperando login por redirección:", error);
